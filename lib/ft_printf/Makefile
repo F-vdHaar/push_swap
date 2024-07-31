@@ -6,7 +6,7 @@
 #    By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/27 12:14:44 by fvon-der          #+#    #+#              #
-#    Updated: 2024/07/31 13:20:05 by fvon-der         ###   ########.fr        #
+#    Updated: 2024/07/31 13:46:55 by fvon-der         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ CC          = gcc
 CFLAGS      = -Wall -Werror -Wextra -I$(INCLUDE) -I$(LIBFT)/include
 RM          = rm -f
 AR          = ar rcs
+MAKE        = make
 
 # Colors
 DEF_COLOR   = \033[0;39m
