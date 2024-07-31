@@ -6,7 +6,7 @@
 #    By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/06 17:37:23 by fvon-der          #+#    #+#              #
-#    Updated: 2024/07/31 13:01:30 by fvon-der         ###   ########.fr        #
+#    Updated: 2024/07/31 16:43:15 by fvon-der         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,16 +37,16 @@ OBJ_FILES   = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC))
 
 # Rule to build the library
 $(NAME): $(OBJ_FILES)
-	$(AR) $(ARFLAGS) $@ $^
+	@$(AR) $(ARFLAGS) $@ $^
 	@echo "$(GREEN)libft.a created!$(DEF_COLOR)"
 
 # Rule to compile source files into object files
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 # Ensure OBJ_DIR exists before writing object files
 $(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
+	@mkdir -p $(OBJ_DIR)
 
 # Default target
 all: $(NAME)
@@ -57,12 +57,13 @@ debug: re
 
 # Clean up
 clean:
-	$(RM) -r $(OBJ_DIR)
+	@$(RM) -r $(OBJ_DIR)
 	@echo "$(BLUE)libft object files cleaned!$(DEF_COLOR)"
 
 # Full clean (includes object files and library)
 fclean: clean
-	$(RM) $(NAME)
+	@echo "$(BLUE)libft library cleaned!$(DEF_COLOR)"
+	@$(RM) $(NAME)
 
 # Rebuild
 re: fclean all
