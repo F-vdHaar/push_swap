@@ -6,7 +6,7 @@
 #    By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/27 22:07:42 by fvon-der          #+#    #+#              #
-#    Updated: 2024/07/31 20:08:00 by fvon-der         ###   ########.fr        #
+#    Updated: 2024/08/06 19:50:49 by fvon-der         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,18 +43,20 @@ SRC_BONUS   = $(wildcard $(SRC_BONUS_DIR)/*.c)
 OBJ_BONUS   = $(patsubst $(SRC_BONUS_DIR)/%.c,$(OBJ_BONUS_DIR)/%.o,$(SRC_BONUS))
 
 # Exclude push_swap.o from bonus object files
-ADD_OBJS    = $(filter-out $(OBJ_DIR)/push_swap.o, $(OBJ))
+ADD_OBJS    = $(filter-out $(OBJ_DIR)/main.o, $(OBJ))
 
 # Hardcoded GNL object files
 GNL_OBJS    = $(GNL_OBJ_DIR)/get_next_line.o $(GNL_OBJ_DIR)/get_next_line_utils.o
 
 # Targets
-all: $(NAME)
+all: $(NAME)  $(BONUS)
 bonus: gnl $(BONUS)
 gnl:
 	@$(MAKE) -C $(GNL_DIR)
 	$(eval GNL_OBJS := $(GNL_OBJ_DIR)/get_next_line.o $(GNL_OBJ_DIR)/get_next_line_utils.o)
-debug: all
+# Debug target
+debug: CFLAGS += -g
+debug: re
 
 # Ensure directories exist
 $(OBJ_DIR):
