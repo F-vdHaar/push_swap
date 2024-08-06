@@ -6,7 +6,7 @@
 #    By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/27 22:07:42 by fvon-der          #+#    #+#              #
-#    Updated: 2024/08/07 01:13:11 by fvon-der         ###   ########.fr        #
+#    Updated: 2024/08/07 01:38:20 by fvon-der         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ GNL_OBJ_DIR = $(GNL_DIR)/obj
 
 # Include paths for libraries and headers
 INCLUDE     = -I$(INCLUDE_DIR)  -I$(PRINTF_DIR)/include -I$(LIBFT_DIR)/include -I$(GNL_DIR)/include
-LIBRARIES   = -L$(LIBFT_DIR) -L$(PRINTF_DIR) -lft
+LIBRARIES   = -L$(LIBFT_DIR) -L$(PRINTF_DIR) -lftprintf -lft
 
 # Source and Object files
 SRC         = $(wildcard $(SRC_DIR)/*.c)
@@ -94,7 +94,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	@echo "Object file created: $@"
 
 # Build object files for bonus
-$(OBJ_BONUS_DIR)/%.o: $(SRC_BONUS_DIR)/%.c | $(OBJ_BONUS_DIR) $(LIBFT_DIR)/libft.a $(GNL_OBJ_DIR)
+$(OBJ_BONUS_DIR)/%.o: $(SRC_BONUS_DIR)/%.c | $(OBJ_BONUS_DIR) $(LIBFT_DIR)/libft.a $(GNL_OBJ_DIR) $(PRINTF_DIR)/libftprintf.a
 	@echo "Compiling checker object: $<"
 	@$(CC) $(FLAGS) $(INCLUDE) -c $< -o $@
 	@echo "Object file created: $@"
@@ -108,7 +108,6 @@ $(NAME): $(OBJ) $(LIBFT_DIR)/libft.a $(PRINTF_DIR)/libftprintf.a
 # Build the bonus executable
 $(BONUS): $(OBJ_BONUS) $(ADD_OBJS) $(LIBFT_DIR)/libft.a $(PRINTF_DIR)/libftprintf.a $(GNL_OBJ_DIR)
 	@echo "Linking $(BONUS) with $(LIBFT_DIR)/libft.a and other object files"
-	@echo "GNL_OBJS: $(GNL_OBJS)"
 	@$(CC) $(FLAGS) $(ADD_OBJS) $(OBJ_BONUS) $(GNL_OBJS) -o $(BONUS) $(INCLUDE) $(LIBRARIES)
 	@echo "$(BONUS) built successfully."
 
@@ -131,4 +130,4 @@ fclean: clean
 re: fclean all
 	@echo "Rebuilding everything..."
 
-.PHONY: all clean fclean re bonus debug 
+.PHONY: all clean fclean re bonus debug
