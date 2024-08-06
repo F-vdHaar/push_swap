@@ -6,7 +6,7 @@
 /*   By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 22:09:25 by fvon-der          #+#    #+#             */
-/*   Updated: 2024/08/06 23:57:06 by fvon-der         ###   ########.fr       */
+/*   Updated: 2024/08/07 01:32:19 by fvon-der         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_stack	*ft_parse_args_quoted(char **argv)
 	return (stack_a);
 }
 
-t_stack	*ft_parse(int argc, char **argv)
+t_stack	*ft_parse_input(int argc, char **argv)
 {
 	t_stack	*stack_a;
 

@@ -6,7 +6,7 @@
 /*   By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 23:59:30 by fvon-der          #+#    #+#             */
-/*   Updated: 2024/08/07 00:01:44 by fvon-der         ###   ########.fr       */
+/*   Updated: 2024/08/07 01:33:11 by fvon-der         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int			check_args(char **argv);
 int			check_error(char **argv, int i, int j);
 void		alpha_check(char **argv);
 // parse
-t_stack		*ft_parse(int argc, char **argv);
+t_stack		*ft_parse_input(int argc, char **argv);
 t_stack		*ft_parse_args_quoted(char **argv);
 // list utils
 void		list_args(char **argv, t_stack **stack_a);
@@ -106,6 +106,5 @@ void		print_exit(char *message, int mode);
 void		ft_check_sub(t_stack **a, t_stack **b, char *line);
 char		*ft_check(t_stack **a, t_stack **b, char *line);
 void		ft_checker_sub(t_stack **a, t_stack **b, char *line);
-void		ft_error_ch(void);
 
 #endif

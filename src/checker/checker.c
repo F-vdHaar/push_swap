@@ -6,13 +6,12 @@
 /*   By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 21:47:20 by fvon-der          #+#    #+#             */
-/*   Updated: 2024/08/07 00:47:50 by fvon-der         ###   ########.fr       */
+/*   Updated: 2024/08/07 01:23:05 by fvon-der         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-// This function is the second part of the ft_check function.
 void	ft_check_sub(t_stack **a, t_stack **b, char *line)
 {
 	if (line[2] == 'a')
@@ -23,8 +22,6 @@ void	ft_check_sub(t_stack **a, t_stack **b, char *line)
 		ft_rrr(a, b, 1);
 }
 
-// This function reads the line and checks if the command is valid.
-// If it is, it executes the command.
 char	*ft_check(t_stack **a, t_stack **b, char *line)
 {
 	if (line[0] == 's' && line[1] == 'a' && line[2] == '\n')
