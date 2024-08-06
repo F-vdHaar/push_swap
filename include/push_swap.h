@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/22 18:18:24 by yogun             #+#    #+#             */
-/*   Updated: 2024/08/06 22:39:28 by fvon-der         ###   ########.fr       */
+/*   Created: 2024/08/06 23:59:30 by fvon-der          #+#    #+#             */
+/*   Updated: 2024/08/07 00:01:44 by fvon-der         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdlib.h>
 # include <stdbool.h>
 # include "../lib/libft/include/libft.h"
+# include "../lib/ft_printf/include/ft_printf.h"
 # include "../lib/get_next_line/include/get_next_line.h"
 
 typedef struct s_stack
@@ -26,7 +27,6 @@ typedef struct s_stack
 	long			nbr;
 	struct s_stack	*next;
 }	t_stack;
-
 
 // Input 
 t_stack		*ft_process(int argc, char **argv);
@@ -94,13 +94,12 @@ int			ft_case_rarrb(t_stack *a, t_stack *b, int c);
 // type rotation
 int			ft_rotate_type_ab(t_stack *a, t_stack *b);
 int			ft_rotate_type_ba(t_stack *a, t_stack *b);
-// apply rotation
+// rotation func
 int			ft_apply_rarb(t_stack **a, t_stack **b, int c, char s);
 int			ft_apply_rrarrb(t_stack **a, t_stack **b, int c, char s);
 int			ft_apply_rrarb(t_stack **a, t_stack **b, int c, char s);
 int			ft_apply_rarrb(t_stack **a, t_stack **b, int c, char s);
 //Error utils
-void		ft_error(void);
 void		print_exit(char *message, int mode);
 
 // Bonus checker

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_list_utils.c                                   :+:      :+:    :+:   */
+/*   list_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 20:02:16 by fvon-der          #+#    #+#             */
-/*   Updated: 2024/08/06 20:13:45 by fvon-der         ###   ########.fr       */
+/*   Updated: 2024/08/06 23:52:03 by fvon-der         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ t_stack	*ft_stack_new(int content)
 
 	new = malloc(sizeof (t_stack));
 	if (!new)
-		ft_error();
+		print_exit("Allocation stack failed", 1);
 	new->nbr = content;
 	new->next = NULL;
 	return (new);

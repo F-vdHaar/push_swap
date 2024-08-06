@@ -6,7 +6,7 @@
 #    By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/27 22:07:42 by fvon-der          #+#    #+#              #
-#    Updated: 2024/08/06 19:50:49 by fvon-der         ###   ########.fr        #
+#    Updated: 2024/08/07 01:13:11 by fvon-der         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,15 @@ CC          = cc
 RM          = rm -f
 FLAGS       = -Wall -Wextra -Werror
 
+# Colors
+RED = \033[1;31m
+GREEN = \033[1;32m
+YELLOW = \033[1;33m
+BLUE = \033[1;34m
+MAGENTA = \033[1;35m
+CYAN = \033[1;36m
+RESET = \033[0m
+
 # Directories
 OBJ_DIR     = obj/push_swap
 OBJ_BONUS_DIR = obj/checker
@@ -26,14 +35,14 @@ SRC_DIR     = src/push_swap
 SRC_BONUS_DIR = src/checker
 LIBFT_DIR   = lib/libft
 GNL_DIR     = lib/get_next_line
+PRINTF_DIR = lib/ft_printf
 INCLUDE_DIR = include
-INCLUDE_LIBFT_DIR = $(LIBFT_DIR)/include
-INCLUDE_GNL_DIR = $(GNL_DIR)/include
+
 GNL_OBJ_DIR = $(GNL_DIR)/obj
 
 # Include paths for libraries and headers
-INCLUDE     = -I$(INCLUDE_DIR) -I$(INCLUDE_LIBFT_DIR) -I$(INCLUDE_GNL_DIR)
-LIBRARIES   = -L$(LIBFT_DIR) -lft
+INCLUDE     = -I$(INCLUDE_DIR)  -I$(PRINTF_DIR)/include -I$(LIBFT_DIR)/include -I$(GNL_DIR)/include
+LIBRARIES   = -L$(LIBFT_DIR) -L$(PRINTF_DIR) -lft
 
 # Source and Object files
 SRC         = $(wildcard $(SRC_DIR)/*.c)
@@ -49,11 +58,8 @@ ADD_OBJS    = $(filter-out $(OBJ_DIR)/main.o, $(OBJ))
 GNL_OBJS    = $(GNL_OBJ_DIR)/get_next_line.o $(GNL_OBJ_DIR)/get_next_line_utils.o
 
 # Targets
-all: $(NAME)  $(BONUS)
-bonus: gnl $(BONUS)
-gnl:
-	@$(MAKE) -C $(GNL_DIR)
-	$(eval GNL_OBJS := $(GNL_OBJ_DIR)/get_next_line.o $(GNL_OBJ_DIR)/get_next_line_utils.o)
+all: $(NAME)
+bonus: $(BONUS)
 # Debug target
 debug: CFLAGS += -g
 debug: re
@@ -68,35 +74,39 @@ $(OBJ_BONUS_DIR):
 	@mkdir -p $(OBJ_BONUS_DIR)
 
 $(GNL_OBJ_DIR):
-	@echo "Creating directory: $(GNL_OBJ_DIR)"
-	@mkdir -p $(GNL_OBJ_DIR)
+	@echo "$(CYAN)Checking for  GNL objects..$(RESET)"
+	@$(MAKE) -C $(GNL_DIR)
 
 # Ensure libft.a is built if it doesn't exist
 $(LIBFT_DIR)/libft.a:
-	@echo "Checking for libft library..."
+	@echo "$(CYAN)Checking for libft library...$(RESET)"
 	@$(MAKE) -C $(LIBFT_DIR)
-	@echo "libft.a built."
+
+$(PRINTF_DIR)/libftprintf.a: $(LIBFT_DIR)/libft.a
+	@echo "$(CYAN)Checking for ft_printf library...$(RESET)"
+	@$(MAKE) -C $(PRINTF_DIR)
+
 
 # Build object files for main project
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR) $(LIBFT_DIR)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	@echo "Compiling push_swap object: $<"
 	@$(CC) $(FLAGS) $(INCLUDE) -c $< -o $@
 	@echo "Object file created: $@"
 
 # Build object files for bonus
-$(OBJ_BONUS_DIR)/%.o: $(SRC_BONUS_DIR)/%.c | $(OBJ_BONUS_DIR) $(LIBFT_DIR)/libft.a gnl
+$(OBJ_BONUS_DIR)/%.o: $(SRC_BONUS_DIR)/%.c | $(OBJ_BONUS_DIR) $(LIBFT_DIR)/libft.a $(GNL_OBJ_DIR)
 	@echo "Compiling checker object: $<"
 	@$(CC) $(FLAGS) $(INCLUDE) -c $< -o $@
 	@echo "Object file created: $@"
 
 # Build the main executable
-$(NAME): $(OBJ) $(LIBFT_DIR)/libft.a
-	@echo "Linking $(NAME) with $(LIBFT_DIR)/libft.a"
+$(NAME): $(OBJ) $(LIBFT_DIR)/libft.a $(PRINTF_DIR)/libftprintf.a 
+	@echo "Linking $(NAME) with libft.a, libftprintf.a "
 	@$(CC) $(FLAGS) $(OBJ) -o $(NAME) $(INCLUDE) $(LIBRARIES)
 	@echo "$(NAME) built successfully."
 
 # Build the bonus executable
-$(BONUS): $(OBJ_BONUS) $(ADD_OBJS) $(LIBFT_DIR)/libft.a $(GNL_OBJS)
+$(BONUS): $(OBJ_BONUS) $(ADD_OBJS) $(LIBFT_DIR)/libft.a $(PRINTF_DIR)/libftprintf.a $(GNL_OBJ_DIR)
 	@echo "Linking $(BONUS) with $(LIBFT_DIR)/libft.a and other object files"
 	@echo "GNL_OBJS: $(GNL_OBJS)"
 	@$(CC) $(FLAGS) $(ADD_OBJS) $(OBJ_BONUS) $(GNL_OBJS) -o $(BONUS) $(INCLUDE) $(LIBRARIES)
@@ -121,4 +131,4 @@ fclean: clean
 re: fclean all
 	@echo "Rebuilding everything..."
 
-.PHONY: all clean fclean re bonus debug gnl
+.PHONY: all clean fclean re bonus debug 

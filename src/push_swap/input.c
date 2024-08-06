@@ -6,7 +6,7 @@
 /*   By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 19:52:40 by fvon-der          #+#    #+#             */
-/*   Updated: 2024/08/06 20:22:50 by fvon-der         ###   ########.fr       */
+/*   Updated: 2024/08/06 23:50:53 by fvon-der         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	alpha_check(char **argv)
 		while ((argv[i][j]) != '\0')
 		{
 			if (ft_isalpha(argv[i][j]))
-				ft_error();
+				print_exit("Input: Not a number", 1);
 			j++;
 		}
 		i++;
@@ -68,7 +68,7 @@ t_stack	*ft_process(int argc, char **argv)
 	i = 1;
 	a = NULL;
 	if (argc < 2)
-		ft_error();
+		print_exit("Usage: Provide input.", 1);
 	if (argc == 2)
 		a = ft_sub_process(argv);
 	else

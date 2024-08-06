@@ -1,21 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   solver_utils_ab.c                                  :+:      :+:    :+:   */
+/*   calc_steps_add.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/27 21:52:26 by fvon-der          #+#    #+#             */
-/*   Updated: 2024/07/28 01:28:08 by fvon-der         ###   ########.fr       */
+/*   Created: 2024/08/06 22:46:41 by fvon-der          #+#    #+#             */
+/*   Updated: 2024/08/06 22:47:09 by fvon-der         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-// This function calculates how many times 
-// we should rotate the stacks together.
-// Because after a certain amoun of rotate, we will
-// proceed only with one stack rotation.
 int	ft_case_rarb(t_stack *a, t_stack *b, int c)
 {
 	int	i;
@@ -26,11 +22,6 @@ int	ft_case_rarb(t_stack *a, t_stack *b, int c)
 	return (i);
 }
 
-// This function calculates how many times we should rotate the stacks together.
-// Because after a certain amoun of rotate, we will proceed only with one stack
-// rotation. Since here we have reverse rotate,rather than index number,
-// we check reverse index number which is 
-// calculated by list_size - index_number.
 int	ft_case_rrarrb(t_stack *a, t_stack *b, int c)
 {
 	int	i;
@@ -43,8 +34,6 @@ int	ft_case_rrarrb(t_stack *a, t_stack *b, int c)
 	return (i);
 }
 
-// Again, this function makes similar calculations.
-// This function do same calculations for rra+rb case.
 int	ft_case_rrarb(t_stack *a, t_stack *b, int c)
 {
 	int	i;
@@ -56,8 +45,6 @@ int	ft_case_rrarb(t_stack *a, t_stack *b, int c)
 	return (i);
 }
 
-// Again, this function makes similar calculations.
-// This function do same calculations for ra+rrb case.
 int	ft_case_rarrb(t_stack *a, t_stack *b, int c)
 {
 	int	i;

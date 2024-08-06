@@ -6,7 +6,7 @@
 /*   By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 22:29:14 by fvon-der          #+#    #+#             */
-/*   Updated: 2024/08/06 22:34:37 by fvon-der         ###   ########.fr       */
+/*   Updated: 2024/08/07 00:32:07 by fvon-der         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,29 +78,4 @@ t_stack	**ft_sort_a(t_stack **stack_a, t_stack **stack_b)
 		}
 	}
 	return (stack_a);
-}
-
-void	ft_sort_b_till_3(t_stack **stack_a, t_stack **stack_b)
-{
-	int		i;
-	t_stack	*tmp;
-
-	while (ft_stacksize(*stack_a) > 3 && !ft_checksorted(*stack_a))
-	{
-		tmp = *stack_a;
-		i = ft_rotate_type_ab(*stack_a, *stack_b);
-		while (i >= 0)
-		{
-			if (i == ft_case_rarb(*stack_a, *stack_b, tmp->nbr))
-				i = ft_apply_rarb(stack_a, stack_b, tmp->nbr, 'a');
-			else if (i == ft_case_rrarrb(*stack_a, *stack_b, tmp->nbr))
-				i = ft_apply_rrarrb(stack_a, stack_b, tmp->nbr, 'a');
-			else if (i == ft_case_rarrb(*stack_a, *stack_b, tmp->nbr))
-				i = ft_apply_rarrb(stack_a, stack_b, tmp->nbr, 'a');
-			else if (i == ft_case_rrarb(*stack_a, *stack_b, tmp->nbr))
-				i = ft_apply_rrarb(stack_a, stack_b, tmp->nbr, 'a');
-			else
-				tmp = tmp->next;
-		}
-	}
 }

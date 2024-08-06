@@ -6,7 +6,7 @@
 /*   By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 22:09:25 by fvon-der          #+#    #+#             */
-/*   Updated: 2024/08/06 22:14:28 by fvon-der         ###   ########.fr       */
+/*   Updated: 2024/08/06 23:57:06 by fvon-der         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_stack	*ft_parse(int argc, char **argv)
 
 	stack_a = NULL;
 	if (argc < 2)
-		ft_error();
+		print_exit("Usage: no arguments", 1);
 	else if (argc == 2)
 		stack_a = ft_parse_args_quoted(argv);
 	else

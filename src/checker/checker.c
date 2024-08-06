@@ -6,7 +6,7 @@
 /*   By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 21:47:20 by fvon-der          #+#    #+#             */
-/*   Updated: 2024/08/06 20:27:30 by fvon-der         ###   ########.fr       */
+/*   Updated: 2024/08/07 00:47:50 by fvon-der         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char	*ft_check(t_stack **a, t_stack **b, char *line)
 	else if (line[0] == 's' && line[1] == 's' && line[2] == '\n')
 		ft_ss(a, b, 1);
 	else
-		ft_error_ch();
+		print_exit("KO", 0);
 	return (get_next_line(0));
 }
 
@@ -82,7 +82,7 @@ int	main(int argc, char **argv)
 	if (!a || ft_checkdup(a))
 	{
 		ft_free (&a);
-		ft_error_ch();
+		print_exit("Duplicates | checker", 1);
 	}
 	line = get_next_line(0);
 	if (!line && !ft_checksorted(a))
@@ -96,8 +96,3 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-void	ft_error_ch(void)
-{
-	write(1, "Error\n", 6);
-	exit(EXIT_FAILURE);
-}
