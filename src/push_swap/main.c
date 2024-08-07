@@ -6,7 +6,7 @@
 /*   By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 19:49:37 by fvon-der          #+#    #+#             */
-/*   Updated: 2024/08/07 03:43:15 by fvon-der         ###   ########.fr       */
+/*   Updated: 2024/08/07 04:19:00 by fvon-der         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(int argc, char **argv)
 {
-	t_stack	*a;
+	t_list	*a;
 
 	a = ft_process_input(argc, argv);
 	if (!a)

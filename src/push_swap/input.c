@@ -6,17 +6,17 @@
 /*   By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 19:52:40 by fvon-der          #+#    #+#             */
-/*   Updated: 2024/08/07 04:01:30 by fvon-der         ###   ########.fr       */
+/*   Updated: 2024/08/07 04:54:24 by fvon-der         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-static t_stack		*ft_sub_process(char **argv);
+static t_list		*ft_sub_process(char **argv);
 
-static t_stack	*ft_sub_process(char **argv)
+static t_list	*ft_sub_process(char **argv)
 {
-	t_stack	*a;
+	t_list	*a;
 	char	**tmp;
 	int		i;
 	int		j;
@@ -27,7 +27,7 @@ static t_stack	*ft_sub_process(char **argv)
 	while (tmp[i])
 	{
 		j = ft_atoi(tmp[i]);
-		ft_add_back(&a, ft_stack_new(j));
+		ft_lstadd_back(&a, ft_lstnew_int(j));
 		i++;
 	}
 	ft_freestr(tmp);
@@ -35,9 +35,9 @@ static t_stack	*ft_sub_process(char **argv)
 	return (a);
 }
 
-t_stack	*ft_process_input(int argc, char **argv)
+t_list	*ft_process_input(int argc, char **argv)
 {
-	t_stack	*a;
+	t_list	*a;
 	int		i;
 	int		j;
 
@@ -52,7 +52,7 @@ t_stack	*ft_process_input(int argc, char **argv)
 		while (i < argc)
 		{
 			j = ft_atoi(argv[i]);
-			ft_add_back(&a, ft_stack_new(j));
+			ft_lstadd_back(&a, ft_lstnew_int(j));
 			i++;
 		}
 	}

@@ -6,13 +6,13 @@
 /*   By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 21:47:20 by fvon-der          #+#    #+#             */
-/*   Updated: 2024/08/07 03:43:15 by fvon-der         ###   ########.fr       */
+/*   Updated: 2024/08/07 04:19:00 by fvon-der         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	ft_command_add(t_stack **a, t_stack **b, char *line)
+void	ft_command_add(t_list **a, t_list **b, char *line)
 {
 	if (line[2] == 'a')
 		ft_rra(a, 1);
@@ -22,7 +22,7 @@ void	ft_command_add(t_stack **a, t_stack **b, char *line)
 		ft_rrr(a, b, 1);
 }
 
-char	*ft_command_exec(t_stack **a, t_stack **b, char *line)
+char	*ft_command_exec(t_list **a, t_list **b, char *line)
 {
 	if (line[0] == 's' && line[1] == 'a' && line[2] == '\n')
 		ft_sa(a, 1);
@@ -47,7 +47,7 @@ char	*ft_command_exec(t_stack **a, t_stack **b, char *line)
 	return (get_next_line(0));
 }
 
-void	ft_ps_operation_validity(t_stack **a, t_stack **b, char *line)
+void	ft_ps_operation_validity(t_list **a, t_list **b, char *line)
 {
 	char	*tmp;
 
@@ -68,8 +68,8 @@ void	ft_ps_operation_validity(t_stack **a, t_stack **b, char *line)
 
 int	main(int argc, char **argv)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_list	*a;
+	t_list	*b;
 	char	*line;
 
 	b = NULL;
