@@ -6,7 +6,7 @@
 /*   By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 22:37:26 by fvon-der          #+#    #+#             */
-/*   Updated: 2024/08/07 03:14:34 by fvon-der         ###   ########.fr       */
+/*   Updated: 2024/08/07 04:10:09 by fvon-der         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ void	ft_sort_big(t_stack **stack_a, t_stack **stack_b)
 		i = ft_rotate_type_ab(*stack_a, *stack_b);
 		while (i >= 0)
 		{
-			if (i == ft_case_rarb(*stack_a, *stack_b, tmp->nbr))
-				i = ft_apply_rarb(stack_a, stack_b, tmp->nbr, 'a');
-			else if (i == ft_case_rrarrb(*stack_a, *stack_b, tmp->nbr))
-				i = ft_apply_rrarrb(stack_a, stack_b, tmp->nbr, 'a');
-			else if (i == ft_case_rarrb(*stack_a, *stack_b, tmp->nbr))
-				i = ft_apply_rarrb(stack_a, stack_b, tmp->nbr, 'a');
-			else if (i == ft_case_rrarb(*stack_a, *stack_b, tmp->nbr))
-				i = ft_apply_rrarb(stack_a, stack_b, tmp->nbr, 'a');
+			if (i == ft_calc_rarb(*stack_a, *stack_b, tmp->nbr))
+				i = ft_exec_rarb(stack_a, stack_b, tmp->nbr, 'a');
+			else if (i == ft_calc_rrarrb(*stack_a, *stack_b, tmp->nbr))
+				i = ft_exec_rrarrb(stack_a, stack_b, tmp->nbr, 'a');
+			else if (i == ft_calc_rarrb(*stack_a, *stack_b, tmp->nbr))
+				i = ft_exec_rarrb(stack_a, stack_b, tmp->nbr, 'a');
+			else if (i == ft_calc_rrarb(*stack_a, *stack_b, tmp->nbr))
+				i = ft_exec_rrarb(stack_a, stack_b, tmp->nbr, 'a');
 			else
 				tmp = tmp->next;
 		}

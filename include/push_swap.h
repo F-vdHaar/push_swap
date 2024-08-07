@@ -6,7 +6,7 @@
 /*   By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 23:59:30 by fvon-der          #+#    #+#             */
-/*   Updated: 2024/08/07 03:52:49 by fvon-der         ###   ########.fr       */
+/*   Updated: 2024/08/07 04:10:09 by fvon-der         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,6 @@ typedef struct s_stack
 
 // Input 
 t_stack		*ft_process_input(int argc, char **argv);
-t_stack		*ft_sub_process(char **argv);
-// parse
-t_stack		*ft_parse_input(int argc, char **argv);
-t_stack		*ft_parse_args_quoted(char **argv);
 // list utils
 void		list_args(char **argv, t_stack **stack_a);
 void		ft_add_back(t_stack **stack, t_stack *stack_new);
@@ -65,7 +61,6 @@ void		ft_pb(t_stack **stack_a, t_stack **stack_b, int j);
 void		ft_rra(t_stack **a, int j);
 void		ft_ss(t_stack **a, t_stack **b, int j);
 void		ft_rr(t_stack **a, t_stack **b, int j);
-void		ft_rrr_sub(t_stack **b, int j);
 void		ft_rrr(t_stack **a, t_stack **b, int j);
 // Operations Add 2
 void		ft_rrb(t_stack **b, int j);
@@ -78,23 +73,23 @@ t_stack		*ft_sort_b(t_stack **stack_a);
 void		ft_sort_big(t_stack **stack_a, t_stack **stack_b);
 void		ft_sort_min(t_stack **stack_a);
 // Calc steps
-int			ft_case_rarb_a(t_stack *a, t_stack *b, int c);
-int			ft_case_rrarrb_a(t_stack *a, t_stack *b, int c);
-int			ft_case_rarrb_a(t_stack *a, t_stack *b, int c);
-int			ft_case_rrarb_a(t_stack *a, t_stack *b, int c);
-int			ft_case_rarb(t_stack *a, t_stack *b, int c);
+int			ft_calc_rarb_a(t_stack *a, t_stack *b, int c);
+int			ft_calc_rrarrb_a(t_stack *a, t_stack *b, int c);
+int			ft_calc_rarrb_a(t_stack *a, t_stack *b, int c);
+int			ft_calc_rrarb_a(t_stack *a, t_stack *b, int c);
+int			ft_calc_rarb(t_stack *a, t_stack *b, int c);
 // Calc steps add
-int			ft_case_rrarrb(t_stack *a, t_stack *b, int c);
-int			ft_case_rrarb(t_stack *a, t_stack *b, int c);
-int			ft_case_rarrb(t_stack *a, t_stack *b, int c);
+int			ft_calc_rrarrb(t_stack *a, t_stack *b, int c);
+int			ft_calc_rrarb(t_stack *a, t_stack *b, int c);
+int			ft_calc_rarrb(t_stack *a, t_stack *b, int c);
 // type rotation
 int			ft_rotate_type_ab(t_stack *a, t_stack *b);
 int			ft_rotate_type_ba(t_stack *a, t_stack *b);
 // rotation func
-int			ft_apply_rarb(t_stack **a, t_stack **b, int c, char s);
-int			ft_apply_rrarrb(t_stack **a, t_stack **b, int c, char s);
-int			ft_apply_rrarb(t_stack **a, t_stack **b, int c, char s);
-int			ft_apply_rarrb(t_stack **a, t_stack **b, int c, char s);
+int			ft_exec_rarb(t_stack **a, t_stack **b, int c, char s);
+int			ft_exec_rrarrb(t_stack **a, t_stack **b, int c, char s);
+int			ft_exec_rrarb(t_stack **a, t_stack **b, int c, char s);
+int			ft_exec_rarrb(t_stack **a, t_stack **b, int c, char s);
 //Error utils
 void		print_exit(char *message, int mode);
 

@@ -6,11 +6,13 @@
 /*   By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 20:40:22 by fvon-der          #+#    #+#             */
-/*   Updated: 2024/08/06 20:40:25 by fvon-der         ###   ########.fr       */
+/*   Updated: 2024/08/07 04:03:47 by fvon-der         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
+
+static void	ft_rrr_sub(t_stack **b, int j);
 
 void	ft_rr(t_stack **a, t_stack **b, int j)
 {
@@ -32,7 +34,7 @@ void	ft_rr(t_stack **a, t_stack **b, int j)
 		write(1, "rr\n", 3);
 }
 
-void	ft_rrr_sub(t_stack **b, int j)
+static void	ft_rrr_sub(t_stack **b, int j)
 {
 	t_stack	*tmp;
 	int		i;

@@ -6,13 +6,13 @@
 /*   By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 22:46:41 by fvon-der          #+#    #+#             */
-/*   Updated: 2024/08/06 22:47:09 by fvon-der         ###   ########.fr       */
+/*   Updated: 2024/08/07 04:07:55 by fvon-der         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-int	ft_case_rarb(t_stack *a, t_stack *b, int c)
+int	ft_calc_rarb(t_stack *a, t_stack *b, int c)
 {
 	int	i;
 
@@ -22,7 +22,7 @@ int	ft_case_rarb(t_stack *a, t_stack *b, int c)
 	return (i);
 }
 
-int	ft_case_rrarrb(t_stack *a, t_stack *b, int c)
+int	ft_calc_rrarrb(t_stack *a, t_stack *b, int c)
 {
 	int	i;
 
@@ -34,7 +34,7 @@ int	ft_case_rrarrb(t_stack *a, t_stack *b, int c)
 	return (i);
 }
 
-int	ft_case_rrarb(t_stack *a, t_stack *b, int c)
+int	ft_calc_rrarb(t_stack *a, t_stack *b, int c)
 {
 	int	i;
 
@@ -45,7 +45,7 @@ int	ft_case_rrarb(t_stack *a, t_stack *b, int c)
 	return (i);
 }
 
-int	ft_case_rarrb(t_stack *a, t_stack *b, int c)
+int	ft_calc_rarrb(t_stack *a, t_stack *b, int c)
 {
 	int	i;
 

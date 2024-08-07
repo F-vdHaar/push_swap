@@ -6,13 +6,13 @@
 /*   By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 22:50:00 by fvon-der          #+#    #+#             */
-/*   Updated: 2024/08/06 22:50:27 by fvon-der         ###   ########.fr       */
+/*   Updated: 2024/08/07 04:10:09 by fvon-der         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-int	ft_apply_rarb(t_stack **a, t_stack **b, int c, char s)
+int	ft_exec_rarb(t_stack **a, t_stack **b, int c, char s)
 {
 	if (s == 'a')
 	{
@@ -37,7 +37,7 @@ int	ft_apply_rarb(t_stack **a, t_stack **b, int c, char s)
 	return (-1);
 }
 
-int	ft_apply_rrarrb(t_stack **a, t_stack **b, int c, char s)
+int	ft_exec_rrarrb(t_stack **a, t_stack **b, int c, char s)
 {
 	if (s == 'a')
 	{
@@ -62,7 +62,7 @@ int	ft_apply_rrarrb(t_stack **a, t_stack **b, int c, char s)
 	return (-1);
 }
 
-int	ft_apply_rrarb(t_stack **a, t_stack **b, int c, char s)
+int	ft_exec_rrarb(t_stack **a, t_stack **b, int c, char s)
 {
 	if (s == 'a')
 	{
@@ -83,7 +83,7 @@ int	ft_apply_rrarb(t_stack **a, t_stack **b, int c, char s)
 	return (-1);
 }
 
-int	ft_apply_rarrb(t_stack **a, t_stack **b, int c, char s)
+int	ft_exec_rarrb(t_stack **a, t_stack **b, int c, char s)
 {
 	if (s == 'a')
 	{
