@@ -6,20 +6,20 @@
 /*   By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 20:40:07 by fvon-der          #+#    #+#             */
-/*   Updated: 2024/08/06 20:40:11 by fvon-der         ###   ########.fr       */
+/*   Updated: 2024/08/07 04:39:11 by fvon-der         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	ft_rb(t_stack **b, int j)
+void	ft_rb(t_list **b, int j)
 {
-	t_stack	*tmp;
+	t_list	*tmp;
 
 	if (!*b || !(*b)->next)
 		return ;
 	tmp = *b;
-	*b = ft_stacklast(*b);
+	*b = ft_lstlast(*b);
 	(*b)->next = tmp;
 	*b = tmp->next;
 	tmp->next = NULL;
@@ -27,9 +27,9 @@ void	ft_rb(t_stack **b, int j)
 		write(1, "rb\n", 3);
 }
 
-void	ft_sb(t_stack **b, int j)
+void	ft_sb(t_list **b, int j)
 {
-	t_stack	*tmp;
+	t_list	*tmp;
 
 	if (!*b || !((*b)->next))
 		return ;

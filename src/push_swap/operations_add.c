@@ -6,27 +6,27 @@
 /*   By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 20:40:22 by fvon-der          #+#    #+#             */
-/*   Updated: 2024/08/07 04:03:47 by fvon-der         ###   ########.fr       */
+/*   Updated: 2024/08/07 04:39:11 by fvon-der         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-static void	ft_rrr_sub(t_stack **b, int j);
+static void	ft_rrr_sub(t_list **b, int j);
 
-void	ft_rr(t_stack **a, t_stack **b, int j)
+void	ft_rr(t_list **a, t_list **b, int j)
 {
-	t_stack	*tmp;
+	t_list	*tmp;
 
 	if (!*a || !((*a)->next) || !*b || !((*b)->next))
 		return ;
 	tmp = *a;
-	*a = ft_stacklast(*a);
+	*a = ft_lstlast(*a);
 	(*a)->next = tmp;
 	*a = tmp->next;
 	tmp->next = NULL;
 	tmp = *b;
-	*b = ft_stacklast(*b);
+	*b = ft_lstlast(*b);
 	(*b)->next = tmp;
 	*b = tmp->next;
 	tmp->next = NULL;
@@ -34,9 +34,9 @@ void	ft_rr(t_stack **a, t_stack **b, int j)
 		write(1, "rr\n", 3);
 }
 
-static void	ft_rrr_sub(t_stack **b, int j)
+static void	ft_rrr_sub(t_list **b, int j)
 {
-	t_stack	*tmp;
+	t_list	*tmp;
 	int		i;
 
 	i = 0;
@@ -57,9 +57,9 @@ static void	ft_rrr_sub(t_stack **b, int j)
 		write(1, "rrr\n", 4);
 }
 
-void	ft_rrr(t_stack **a, t_stack **b, int j)
+void	ft_rrr(t_list **a, t_list **b, int j)
 {
-	t_stack	*tmp;
+	t_list	*tmp;
 	int		i;
 
 	if (!*a || !((*a)->next) || !*b || !((*b)->next))
@@ -81,9 +81,9 @@ void	ft_rrr(t_stack **a, t_stack **b, int j)
 	ft_rrr_sub(b, j);
 }
 
-void	ft_pb(t_stack **stack_a, t_stack **stack_b, int j)
+void	ft_pb(t_list **stack_a, t_list **stack_b, int j)
 {
-	t_stack	*tmp;
+	t_list	*tmp;
 
 	if (!*stack_a)
 		return ;
@@ -95,9 +95,9 @@ void	ft_pb(t_stack **stack_a, t_stack **stack_b, int j)
 		write(1, "pb\n", 3);
 }
 
-void	ft_rrb(t_stack **b, int j)
+void	ft_rrb(t_list **b, int j)
 {
-	t_stack	*tmp;
+	t_list	*tmp;
 	int		i;
 
 	if (!*b || !(*b)->next)

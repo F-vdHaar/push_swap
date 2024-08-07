@@ -6,20 +6,20 @@
 /*   By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 21:52:00 by fvon-der          #+#    #+#             */
-/*   Updated: 2024/08/06 20:36:40 by fvon-der         ###   ########.fr       */
+/*   Updated: 2024/08/07 04:39:11 by fvon-der         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	ft_ra(t_stack **a, int j)
+void	ft_ra(t_list **a, int j)
 {
-	t_stack	*tmp;
+	t_list	*tmp;
 
 	if (!*a || !(*a)->next)
 		return ;
 	tmp = *a;
-	*a = ft_stacklast(*a);
+	*a = ft_lstlast(*a);
 	(*a)->next = tmp;
 	*a = tmp->next;
 	tmp->next = NULL;
@@ -27,9 +27,9 @@ void	ft_ra(t_stack **a, int j)
 		write(1, "ra\n", 3);
 }
 
-void	ft_sa(t_stack **a, int j)
+void	ft_sa(t_list **a, int j)
 {
-	t_stack	*tmp;
+	t_list	*tmp;
 
 	if (!*a || !((*a)->next))
 		return ;
@@ -41,9 +41,9 @@ void	ft_sa(t_stack **a, int j)
 		write(1, "sa\n", 3);
 }
 
-void	ft_pa(t_stack **a, t_stack **b, int j)
+void	ft_pa(t_list **a, t_list **b, int j)
 {
-	t_stack	*tmp;
+	t_list	*tmp;
 
 	if (!*b)
 		return ;
@@ -55,9 +55,9 @@ void	ft_pa(t_stack **a, t_stack **b, int j)
 		write(1, "pa\n", 3);
 }
 
-void	ft_rra(t_stack **a, int j)
+void	ft_rra(t_list **a, int j)
 {
-	t_stack	*tmp;
+	t_list	*tmp;
 	int		i;
 
 	if (!*a || !(*a)->next)
@@ -80,9 +80,9 @@ void	ft_rra(t_stack **a, int j)
 		write(1, "rra\n", 4);
 }
 
-void	ft_ss(t_stack **a, t_stack **b, int j)
+void	ft_ss(t_list **a, t_list **b, int j)
 {
-	t_stack	*tmp;
+	t_list	*tmp;
 
 	if (!*a || !((*a)->next) || !*b || !((*b)->next))
 		return ;
