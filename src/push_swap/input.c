@@ -6,38 +6,12 @@
 /*   By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 19:52:40 by fvon-der          #+#    #+#             */
-/*   Updated: 2024/08/06 23:50:53 by fvon-der         ###   ########.fr       */
+/*   Updated: 2024/08/07 03:55:05 by fvon-der         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-int	check_args(char **argv)
-{
-	alpha_check(argv);
-	if (!check_error(argv, 1, 0))
-		return (false);
-	return (true);
-}
-
-void	alpha_check(char **argv)
-{
-	int	i;
-	int	j;
-
-	i = 1;
-	while (argv[i])
-	{
-		j = 0;
-		while ((argv[i][j]) != '\0')
-		{
-			if (ft_isalpha(argv[i][j]))
-				print_exit("Input: Not a number", 1);
-			j++;
-		}
-		i++;
-	}
-}
 t_stack	*ft_sub_process(char **argv)
 {
 	t_stack	*a;
@@ -59,7 +33,7 @@ t_stack	*ft_sub_process(char **argv)
 	return (a);
 }
 
-t_stack	*ft_process(int argc, char **argv)
+t_stack	*ft_process_input(int argc, char **argv)
 {
 	t_stack	*a;
 	int		i;
@@ -83,30 +57,31 @@ t_stack	*ft_process(int argc, char **argv)
 	return (a);
 }
 
-int	check_error(char **argv, int i, int j)
+t_stack	*ft_parse_args_quoted(char **argv)
 {
-	while (argv[i])
+	t_stack	*stack_a;
+	char	**tmp;
+
+	stack_a = NULL;
+	tmp = ft_split(argv[1], 32);
+	list_args(tmp, &stack_a);
+	ft_freestr(tmp);
+	free(tmp);
+	return (stack_a);
+}
+
+t_stack	*ft_parse_input(int argc, char **argv)
+{
+	t_stack	*stack_a;
+
+	stack_a = NULL;
+	if (argc < 2)
+		print_exit("Usage: no arguments", 1);
+	else if (argc == 2)
+		stack_a = ft_parse_args_quoted(argv);
+	else
 	{
-		j = 0;
-		while ((argv[i][j] != '\0'))
-		{
-			if (sign(argv[i][j]))
-			{
-				j++;
-				if (!digit(argv[i][j]))
-					return (false);
-			}
-			else if (digit(argv[i][j]))
-			{
-				j++;
-				if (argv[i][j] == '\0')
-					break ;
-				if (!digit(argv[i][j]) && !space(argv[i][j]))
-					return (false);
-			}
-			j++;
-		}
-		i++;
+		list_args(argv, &stack_a);
 	}
-	return (true);
+	return (stack_a);
 }

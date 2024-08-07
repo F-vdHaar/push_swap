@@ -6,7 +6,7 @@
 /*   By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 23:59:30 by fvon-der          #+#    #+#             */
-/*   Updated: 2024/08/07 01:33:11 by fvon-der         ###   ########.fr       */
+/*   Updated: 2024/08/07 03:52:49 by fvon-der         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,8 @@ typedef struct s_stack
 }	t_stack;
 
 // Input 
-t_stack		*ft_process(int argc, char **argv);
+t_stack		*ft_process_input(int argc, char **argv);
 t_stack		*ft_sub_process(char **argv);
-int			check_args(char **argv);
-int			check_error(char **argv, int i, int j);
-void		alpha_check(char **argv);
 // parse
 t_stack		*ft_parse_input(int argc, char **argv);
 t_stack		*ft_parse_args_quoted(char **argv);
@@ -46,9 +43,8 @@ t_stack		*ft_stack_new(int content);
 // list_utils add
 void		ft_free(t_stack **lst);
 // LIBFT add
-int			sign(int c);
-int			digit(int c);
-int			space(int c);
+int			ft_issign(int c);
+int			ft__isspace(int c);
 void		ft_freestr(char **lst);
 // Finders
 int			ft_min(t_stack *a);
@@ -57,8 +53,8 @@ int			ft_find_index(t_stack *a, int nbr);
 int			ft_find_place_b(t_stack *stack_b, int nbr_push);
 int			ft_find_place_a(t_stack *a, int nbr);
 // list validation
-int			ft_checksorted(t_stack *stack_a);
-int			ft_checkdup(t_stack *a);
+int			is_sorted(t_stack *stack_a);
+int			is_duplicate(t_stack *a);
 // Operations Add
 void		ft_ra(t_stack **a, int j);
 void		ft_rb(t_stack **b, int j);
@@ -79,8 +75,8 @@ void		ft_sort(t_stack **stack_a);
 t_stack		**ft_sort_a(t_stack **stack_a, t_stack **stack_b);
 t_stack		*ft_sort_b(t_stack **stack_a);
 // sorter scale
-void		ft_sort_b_till_3(t_stack **stack_a, t_stack **stack_b);
-void		ft_sort_three(t_stack **stack_a);
+void		ft_sort_big(t_stack **stack_a, t_stack **stack_b);
+void		ft_sort_min(t_stack **stack_a);
 // Calc steps
 int			ft_case_rarb_a(t_stack *a, t_stack *b, int c);
 int			ft_case_rrarrb_a(t_stack *a, t_stack *b, int c);
@@ -103,8 +99,8 @@ int			ft_apply_rarrb(t_stack **a, t_stack **b, int c, char s);
 void		print_exit(char *message, int mode);
 
 // Bonus checker
-void		ft_check_sub(t_stack **a, t_stack **b, char *line);
-char		*ft_check(t_stack **a, t_stack **b, char *line);
-void		ft_checker_sub(t_stack **a, t_stack **b, char *line);
+void		ft_command_add(t_stack **a, t_stack **b, char *line);
+char		*ft_command_exec(t_stack **a, t_stack **b, char *line);
+void		ft_ps_operation_validity(t_stack **a, t_stack **b, char *line);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 22:29:14 by fvon-der          #+#    #+#             */
-/*   Updated: 2024/08/07 00:32:07 by fvon-der         ###   ########.fr       */
+/*   Updated: 2024/08/07 03:14:34 by fvon-der         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,14 @@ t_stack	*ft_sort_b(t_stack **stack_a)
 	t_stack	*stack_b;
 
 	stack_b = NULL;
-	if (ft_stacksize(*stack_a) > 3 && !ft_checksorted(*stack_a))
+	if (ft_stacksize(*stack_a) > 3 && !is_sorted(*stack_a))
 		ft_pb(stack_a, &stack_b, 0);
-	if (ft_stacksize(*stack_a) > 3 && !ft_checksorted(*stack_a))
+	if (ft_stacksize(*stack_a) > 3 && !is_sorted(*stack_a))
 		ft_pb(stack_a, &stack_b, 0);
-	if (ft_stacksize(*stack_a) > 3 && !ft_checksorted(*stack_a))
-		ft_sort_b_till_3(stack_a, &stack_b);
-	if (!ft_checksorted(*stack_a))
-		ft_sort_three(stack_a);
+	if (ft_stacksize(*stack_a) > 3 && !is_sorted(*stack_a))
+		ft_sort_big(stack_a, &stack_b);
+	if (!is_sorted(*stack_a))
+		ft_sort_min(stack_a);
 	return (stack_b);
 }
 

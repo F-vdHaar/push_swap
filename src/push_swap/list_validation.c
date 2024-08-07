@@ -6,13 +6,13 @@
 /*   By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 20:32:45 by fvon-der          #+#    #+#             */
-/*   Updated: 2024/08/06 22:06:35 by fvon-der         ###   ########.fr       */
+/*   Updated: 2024/08/07 03:13:25 by fvon-der         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-int	ft_checksorted(t_stack *stack_a)
+int	is_sorted(t_stack *stack_a)
 {
 	int	i;
 
@@ -27,7 +27,7 @@ int	ft_checksorted(t_stack *stack_a)
 	return (1);
 }
 
-int	ft_checkdup(t_stack *a)
+int	is_duplicate(t_stack *a)
 {
 	t_stack	*tmp;
 
