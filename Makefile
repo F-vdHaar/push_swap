@@ -6,7 +6,7 @@
 #    By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/27 22:07:42 by fvon-der          #+#    #+#              #
-#    Updated: 2024/08/07 01:38:20 by fvon-der         ###   ########.fr        #
+#    Updated: 2024/08/07 09:59:27 by fvon-der         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,8 +54,8 @@ OBJ_BONUS   = $(patsubst $(SRC_BONUS_DIR)/%.c,$(OBJ_BONUS_DIR)/%.o,$(SRC_BONUS))
 # Exclude push_swap.o from bonus object files
 ADD_OBJS    = $(filter-out $(OBJ_DIR)/main.o, $(OBJ))
 
-# Hardcoded GNL object files
-GNL_OBJS    = $(GNL_OBJ_DIR)/get_next_line.o $(GNL_OBJ_DIR)/get_next_line_utils.o
+# GNL object files
+GNL_OBJS = $(patsubst $(GNL_DIR)/%.c,$(GNL_DIR)/obj/%.o,$(wildcard $(GNL_DIR)/*.c))
 
 # Targets
 all: $(NAME)
