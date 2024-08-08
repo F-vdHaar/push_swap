@@ -6,7 +6,7 @@
 /*   By: fvon-der <fvon-der@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 21:48:59 by fvon-der          #+#    #+#             */
-/*   Updated: 2024/08/07 03:10:10 by fvon-der         ###   ########.fr       */
+/*   Updated: 2024/08/08 07:06:18 by fvon-der         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,10 @@ void	print_exit(char *message, int mode)
 {
 	if (mode == 0)
 	{
-		(void)message;
 		ft_printf("%s\n", message);
 		exit(EXIT_SUCCESS);
 	}
-	else if(mode == 1)
+	else if (mode == 1)
 	{
 		ft_printf("\nError: %s\n", message);
 		exit(EXIT_FAILURE);
